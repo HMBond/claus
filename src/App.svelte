@@ -1,15 +1,16 @@
 <script>
   import Claus from "./claus/Claus.svelte";
   import Keyboard from "./Keyboard.svelte";
-  let visible = true;
+  import Background from "./background/Background.svelte";
+  let alive = true;
 
   function respawn() {
-    visible = false;
-    setTimeout(() => visible = true, 100);
+    alive = false;
+    setTimeout(() => (alive = true), 100);
   }
-  
+
   function kill() {
-    visible = false;
+    alive = false;
   }
 </script>
 
@@ -24,9 +25,12 @@
 
 <div class="App">
   <Keyboard />
-  {#if visible}
-  <Claus />
+  <Background />
+  {#if alive}
+    <Claus />
   {/if}
+  <!-- <GunFire /> -->
+
   <button on:click={kill}>kill</button>
   <button on:click={respawn}>respawn</button>
 </div>

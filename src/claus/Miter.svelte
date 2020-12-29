@@ -2,7 +2,7 @@
     import { spring } from "svelte/motion";
     import { onMount } from "svelte";
     import { moveLeft, moveRight } from "../actions.js";
-    let miter;
+    
     const coords = spring(
         { x: 0, y: 0 },
         {
@@ -10,6 +10,7 @@
             damping: 0.2,
         }
     );
+
     let timeout;
     $: if ($moveLeft || $moveRight) {
         timeout = setTimeout(() => coords.set({ x: 10, y: 0 }), 300);

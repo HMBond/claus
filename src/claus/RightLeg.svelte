@@ -1,26 +1,21 @@
 <script>
     import { tweened } from "svelte/motion";
-    import { sineInOut } from "svelte/easing";
+    import { cubicIn } from "svelte/easing";
     import { moveLeft, moveRight } from "../actions.js";
-    import { Walker } from "../movement.js";
+    import { Cycler } from "../cycler.js";
 
-    export let initTransform;
-
-    const walkingSpeed = 6;
-
-    const x = tweened(0, {
-        duration: 1000 / walkingSpeed,
-        easing: sineInOut,
-    });
-
-    const walker = new Walker();
-    $: $moveLeft || $moveRight ? walker.walk(x, 0, -50, walkingSpeed) : walker.stopWalking(x, 0);
+    let x = tweened(0, {
+            duration: 300 / 2,
+            easing: cubicIn,
+        });
+    const cycler = new Cycler({ from: 0, to: -50, duration: 300 });
+    $: $moveLeft || $moveRight ? cycler.play(x) : cycler.stop(x);
 </script>
 
-<svg width="269" height="298" style="transform: translateX({$x}px);">
+<svg style="transform: translateX({$x}px);">
     <path
         d="M25 0L50 67L0 67L25 0Z"
-        transform={initTransform}
+        transform="matrix(-0.9743701 -0.2249511 0.2249511 -0.9743701 156.4466 296)"
         fill="#FFFFFF"
         stroke="#000000"
         stroke-width="2" />
