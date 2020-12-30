@@ -1,7 +1,7 @@
 <script>
     import Floor from "./Floor.svelte";
-    import Hay from "./Hay.svelte";
+    import HayStack from "./HayStack.svelte";
 </script>
 
 <Floor />
-<Hay />
+<HayStack />

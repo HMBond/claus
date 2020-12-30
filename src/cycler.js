@@ -21,7 +21,7 @@ export class Cycler {
             if (this.maxIterations !== -1) this.stopAtMax(store);
         }, this.duration / 2);
     }
-    
+
     stopAtMax(store) {
         this.iterations++;
         if (this.iterations >= this.maxIterations * 2) {

@@ -1,7 +1,7 @@
 <script>
     import { tweened } from "svelte/motion";
     import { cubicIn } from "svelte/easing";
-    import { moveLeft, moveRight } from "../actions.js";
+    import { direction } from "../actions.js";
     import { Cycler } from "../cycler.js";
 
     let x = tweened(0, {
@@ -9,7 +9,7 @@
             easing: cubicIn,
         });
     const cycler = new Cycler({ from: 0, to: -50, duration: 300 });
-    $: $moveLeft || $moveRight ? cycler.play(x) : cycler.stop(x);
+    $: $direction ? cycler.play(x) : cycler.stop(x);
 </script>
 
 <svg style="transform: translateX({$x}px);">

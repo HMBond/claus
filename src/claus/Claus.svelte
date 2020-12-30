@@ -1,6 +1,4 @@
 <script>
-    import { onMount } from "svelte";
-    import { writable } from "svelte/store";
     import { tweened } from "svelte/motion";
     import { sineInOut } from "svelte/easing";
     import { fade, draw, fly, scale } from "svelte/transition";
@@ -13,17 +11,14 @@
     import LeftArm from "./LeftArm.svelte";
     import RightLeg from "./RightLeg.svelte";
     import LeftLeg from "./LeftLeg.svelte";
-    import { moveLeft, moveRight } from "../actions.js";
+    import { direction } from "../actions.js";
 
     const mirror = tweened(-1, {
-        duration: 200,
         easing: sineInOut,
     });
-
-    $: if ($moveLeft) mirror.set(1);
-    $: if ($moveRight) mirror.set(-1);
+    $: if ($direction === -1) mirror.set(1);
+    $: if ($direction === 1) mirror.set(-1);
 </script>
-
 <div
     style="transform: scaleX({$mirror});"
     out:fly={{ x: 8, y: 5, duration: 1000 }}
