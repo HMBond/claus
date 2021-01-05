@@ -1,24 +1,21 @@
 <script>
-  import { onMount } from 'svelte';
-  import { direction, distance } from '../actions.js';
-  //import { activeHay } from './bg.js';
+  import { distance } from '../actions.js';
   export let id = -1;
   export let bornLeft = false;
-  export let size = 0.75;
+  export let size = 200;
   export let bornAtDistance = 0;
   export let activeHay;
 
   let hayElement;
 
-  console.log(id);
-  const offset = 100;
-
+  const elementsAppearOffset = 200;
 
   $: if (
-    hayElement &&
-    hayElement.getBoundingClientRect().x - 2 * offset > window.innerWidth
-    || hayElement &&
-    hayElement.getBoundingClientRect().x + 2 * offset < 0
+    (hayElement &&
+      hayElement.getBoundingClientRect().x - 2 * elementsAppearOffset >
+        window.innerWidth) ||
+    (hayElement &&
+      hayElement.getBoundingClientRect().x + 2 * elementsAppearOffset < 0)
   ) {
     activeHay.set([...$activeHay.filter((hay) => hay.id !== id)]);
   }
@@ -30,14 +27,12 @@
   }
 </style>
 
-<!--
-<h1>{$distance}</h1> -->
 <svg
   bind:this={hayElement}
   viewBox="0 -100 500 500"
-  width={80 * size + 40}
+  width={size}
   style="
-  {bornLeft ? 'left: ' : 'right: '}{-offset}px;
+  {bornLeft ? 'left: ' : 'right: '}{-elementsAppearOffset}px;
   transform: translateX({bornLeft ? -($distance - bornAtDistance) : -($distance - bornAtDistance)}px);
   ">
   <defs>

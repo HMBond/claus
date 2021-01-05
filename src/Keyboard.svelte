@@ -9,10 +9,9 @@
     l: hohoho
   };
 
-  $: console.log({left: $moveLeft,right: $moveRight});
+  //$: console.log({left: $moveLeft,right: $moveRight});
 
   function handleKeydown(event) {
-    // console.log(event.key);
     keyActions[event.key] && keyActions[event.key].set(true);
   }
   function handleKeyup(event) {

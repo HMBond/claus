@@ -21,6 +21,9 @@
     justify-content: center;
     height: 100%;
   }
+  button {
+    z-index: 1;
+  }
 </style>
 
 <div class="App">

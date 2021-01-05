@@ -33,3 +33,10 @@
     <Ak47 />
     <RightArm />
 </div>
+
+<style>
+  div {
+    position:relative;
+    top: 7vh;
+  }
+</style>
