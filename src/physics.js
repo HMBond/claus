@@ -1,0 +1,50 @@
+import { writable, get } from 'svelte/store';
+import { tweened } from 'svelte/motion';
+import { linear } from 'svelte/easing';
+import { moveLeft, moveRight } from './actions.js';
+
+export const speed = tweened(0, {
+  duration: 200
+});
+export const power = tweened(200);
+export const direction = writable(0);
+export const distance = tweened(0, {
+  duration: 100,
+  easing: linear
+});
+
+let moveInterval;
+const move = (input) => {
+  if (get(direction) === input) return;
+  direction.set(input);
+  clearInterval(moveInterval);
+  if (input === 0) {
+    speed.set(0);
+    return;
+  }
+  moveInterval = setInterval(() => {
+    speed.set(get(power));
+    distance.update((d) => {
+      return input === 1 ? d + get(speed) : d - get(speed);
+    });
+  }, 100);
+};
+
+const goMoveLeft = (active) => {
+  if (!active && get(moveRight)) {
+    move(1);
+    return;
+  }
+  active ? move(-1) : move(0);
+};
+
+const goMoveRight = (active) => {
+  if (!active && get(moveLeft)) {
+    move(-1);
+    return;
+  }
+  active ? move(1) : move(0);
+};
+
+moveLeft.subscribe((active) => goMoveLeft(active));
+moveRight.subscribe((active) => goMoveRight(active));

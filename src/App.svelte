@@ -1,7 +1,7 @@
 <script>
-  import Claus from "./claus/Claus.svelte";
-  import Keyboard from "./Keyboard.svelte";
-  import Background from "./background/Background.svelte";
+  import Claus from './claus/Claus.svelte';
+  import Keyboard from './Keyboard.svelte';
+  import Decor from './decor/Decor.svelte';
   let alive = true;
 
   function respawn() {
@@ -28,12 +28,10 @@
 
 <div class="App">
   <Keyboard />
-  <Background />
-  {#if alive}
-    <Claus />
-  {/if}
+  <Decor>
+    {#if alive}
+      <Claus />
+    {/if}
+  </Decor>
   <!-- <GunFire /> -->
-
-  <button on:click={kill}>kill</button>
-  <button on:click={respawn}>respawn</button>
 </div>

@@ -1,7 +1,7 @@
 <script>
     import { tweened } from "svelte/motion";
     import { cubicIn } from "svelte/easing";
-    import { direction } from "../actions.js";
+    import { direction } from "../physics.js";
     import { Cycler } from "../cycler.js";
 
     let x = tweened(0, {

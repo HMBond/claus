@@ -11,7 +11,7 @@
     import LeftArm from "./LeftArm.svelte";
     import RightLeg from "./RightLeg.svelte";
     import LeftLeg from "./LeftLeg.svelte";
-    import { direction } from "../actions.js";
+    import { direction } from "../physics.js";
 
     const mirror = tweened(-1, {
         easing: sineInOut,

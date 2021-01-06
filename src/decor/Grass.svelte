@@ -1,5 +1,5 @@
 <script>
-  import {distance } from '../actions.js';
+  import {distance } from '../physics.js';
 
 </script>
 
