@@ -1,7 +1,7 @@
 <script>
   import Floor from './Floor.svelte';
   import Grass from './Grass.svelte';
-  import Silhouette from './Silhouette.svelte';
+  import HayStack from './HayStack.svelte';
   import Mountains from './Mountains.svelte';
 </script>
 
@@ -11,4 +11,4 @@
 <slot>
   <h1>Where is Claus?</h1>
 </slot>
-<Silhouette />
+<HayStack />

@@ -1,10 +1,11 @@
 <script>
-  import { distance } from '../physics.js';
+  import { distance, speed } from '../physics.js';
   export let id;
   export let bornAt;
   export let size;
   export let bornAtDistance;
   export let activeMountains;
+  export let mirror;
 
   const creationOffset = 3500;
   const parallaxWeight = 0.2;
@@ -20,13 +21,11 @@
 </script>
 
 <svg
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 379.6 81"
-  width={size}
+  width={size - 0.8 * $speed}
   style="bottom: 40vh;
   {bornAt < 0 ? 'left: ' : 'right: '}{-creationOffset}px;
-  transform: translateX({(bornAtDistance - $distance) * parallaxWeight}px);
+  transform: translateX({(bornAtDistance - $distance) * parallaxWeight}px) scaleX({mirror ? -1 : 1});
   ">
   <linearGradient
     id="SVGID_1_"

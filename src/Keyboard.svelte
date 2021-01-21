@@ -1,21 +1,34 @@
 <script>
-  import { moveLeft, moveRight, fire, hit, hohoho } from './actions.js';
+  import { moveLeft, moveRight, fire, hit, hohoho, walk } from './actions';
 
   const keyActions = {
     a: moveLeft,
+    A: moveLeft,
     d: moveRight,
+    D: moveRight,
     ' ': fire,
     q: hit,
-    l: hohoho
+    Q: hit,
+    l: hohoho,
+    L: hohoho
   };
 
-  //$: console.log({left: $moveLeft,right: $moveRight});
+  //$: console.log({ walk: $walk });
+
+  let timeout;
 
   function handleKeydown(event) {
     keyActions[event.key] && keyActions[event.key].set(true);
-  }
-  function handleKeyup(event) {
-    keyActions[event.key] && keyActions[event.key].set(false);
+    if (event.shiftKey) {
+        walk.set(true);
+        clearTimeout(timeout);
+      timeout = setTimeout(() => {
+          walk.set(false);
+        }, 500);
+      }
+    }
+    function handleKeyup(event) {
+      keyActions[event.key] && keyActions[event.key].set(false);
   }
 </script>
 

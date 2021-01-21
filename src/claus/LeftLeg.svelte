@@ -1,8 +1,8 @@
 <script>
     import { tweened } from "svelte/motion";
     import { cubicIn } from "svelte/easing";
-    import { direction } from "../physics.js";
-    import { Cycler } from "../cycler.js";
+    import { direction } from "../physics";
+    import { Cycler } from "../cycler";
 
     let x = tweened(0, {
         duration: 300 / 2,

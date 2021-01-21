@@ -1,7 +1,7 @@
 <script>
     import { spring } from "svelte/motion";
-    import { Cycler } from "../cycler.js";
-    import { hohoho } from "../actions.js";
+    import { Cycler } from "../cycler";
+    import { hohoho } from "../actions";
 
     const store = spring(0);
     const cycler = new Cycler({from: 0, to: 10, duration: 300, maxIterations: 3});

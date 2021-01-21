@@ -6,4 +6,5 @@ export const hohoho = writable(false);
 export const moveLeft = writable(false);
 export const moveRight = writable(false);
 export const pause = writable(false);
+export const walk = writable(false);
 

@@ -1,7 +1,7 @@
 <script>
     import { tweened } from "svelte/motion";
     import { cubicInOut } from "svelte/easing";
-    import { hit } from "../actions.js";
+    import { hit } from "../actions";
 
     const scaleX = tweened(0, {
         duration: 100,

@@ -2,6 +2,7 @@
   import Claus from './claus/Claus.svelte';
   import Keyboard from './Keyboard.svelte';
   import Decor from './decor/Decor.svelte';
+  import DebugWindow from './DebugWindow.svelte';
   let alive = true;
 
   function respawn() {
@@ -21,9 +22,6 @@
     justify-content: center;
     height: 100%;
   }
-  button {
-    z-index: 1;
-  }
 </style>
 
 <div class="App">
@@ -34,4 +32,5 @@
     {/if}
   </Decor>
   <!-- <GunFire /> -->
+  <DebugWindow />
 </div>

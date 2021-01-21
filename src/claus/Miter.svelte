@@ -1,8 +1,8 @@
 <script>
     import { spring } from "svelte/motion";
     import { onMount } from "svelte";
-    import { moveLeft, moveRight } from "../actions.js";
-    
+    import { moveLeft, moveRight } from "../actions";
+
     const coords = spring(
         { x: 0, y: 0 },
         {

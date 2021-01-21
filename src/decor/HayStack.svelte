@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
-  import { direction, distance } from '../physics.js';
+  import { direction, distance, power } from '../physics';
   import Hay from './Hay.svelte';
 
   const haySize = 200;
@@ -18,9 +18,9 @@
     };
     activeHay.set([hay, ...$activeHay]);
   };
-  // every x milliseconds a hay will appear on the opposite side to where you go
   $: if ($direction !== 0) {
-    const duration = 100;
+    console.log("generate hay: interval changes, that's bad...");
+    const duration = 50000/$power;
     clearInterval(interval);
     interval = setInterval(() => createHay($direction), duration);
   } else {

@@ -1,15 +1,13 @@
 import { writable, get } from 'svelte/store';
 import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
-import { moveLeft, moveRight } from './actions.js';
+import { moveLeft, moveRight, walk } from './actions';
 
-export const speed = tweened(0, {
-  duration: 200
-});
-export const power = tweened(200);
+export const speed = tweened(0);
+export const power = tweened(100);
 export const direction = writable(0);
 export const distance = tweened(0, {
-  duration: 100,
+  duration: 200,
   easing: linear
 });
 
@@ -23,7 +21,7 @@ const move = (input) => {
     return;
   }
   moveInterval = setInterval(() => {
-    speed.set(get(power));
+    speed.set(get(power) / 2);
     distance.update((d) => {
       return input === 1 ? d + get(speed) : d - get(speed);
     });
@@ -48,3 +46,11 @@ const goMoveRight = (active) => {
 
 moveLeft.subscribe((active) => goMoveLeft(active));
 moveRight.subscribe((active) => goMoveRight(active));
+
+walk.subscribe((w) => {
+  if (w === true) {
+    power.update((p) => p / 2);
+  } else {
+    power.update((p) => p * 2);
+  }
+});
