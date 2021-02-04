@@ -4,12 +4,15 @@ import { linear } from 'svelte/easing';
 import { moveLeft, moveRight, walk } from './actions';
 
 export const speed = tweened(0);
-export const power = tweened(100);
+export const powerTween = tweened(100);
+export const power = writable(100);
 export const direction = writable(0);
 export const distance = tweened(0, {
   duration: 200,
   easing: linear
 });
+
+power.subscribe((p) => powerTween.set(p));
 
 let moveInterval;
 const move = (input) => {
@@ -21,7 +24,7 @@ const move = (input) => {
     return;
   }
   moveInterval = setInterval(() => {
-    speed.set(get(power) / 2);
+    speed.set(get(powerTween) / 2);
     distance.update((d) => {
       return input === 1 ? d + get(speed) : d - get(speed);
     });
