@@ -1,5 +1,6 @@
 <script>
   import Claus from './claus/Claus.svelte';
+  import Taliban from './enemies/Taliban.svelte';
   import Keyboard from './Keyboard.svelte';
   import Decor from './decor/Decor.svelte';
   import DebugWindow from './DebugWindow.svelte';
@@ -30,6 +31,7 @@
     {#if alive}
       <Claus />
     {/if}
+    <Taliban />
   </Decor>
   <!-- <GunFire /> -->
   <DebugWindow />

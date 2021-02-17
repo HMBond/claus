@@ -5,10 +5,10 @@
   import Mountains from './Mountains.svelte';
 </script>
 
-<Mountains />
+<!-- <Mountains /> -->
 <Floor />
 <Grass />
 <slot>
   <h1>Where is Claus?</h1>
 </slot>
-<HayStack />
+<!-- <HayStack /> -->

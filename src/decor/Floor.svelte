@@ -5,5 +5,5 @@
     }
 </style>
 
-<svg width="100vw" height=" 33.3vh" >
+<svg width="100vw" height="40vh" >
 </svg>

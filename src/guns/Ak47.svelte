@@ -2,9 +2,9 @@
     import { writable } from "svelte/store";
     import { tweened } from "svelte/motion";
     import { cubicIn } from "svelte/easing";
-    import { fire } from "../actions.js";
     import GunFire from "./GunFire.svelte";
 
+    export let fire;
     const roundsPerMinute = 600 * 2;
 
     const x = tweened(0, {
@@ -48,5 +48,5 @@
     {#if $gunFire}
     <GunFire />
     {/if}
-    
+
 </div>
