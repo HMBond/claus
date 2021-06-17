@@ -1,5 +1,5 @@
 <script>
-  import { speed, power, distance } from './physics';
+  import { speed, power, distance } from './mechanics';
 </script>
 
 <div class="debug-window">

@@ -9,7 +9,7 @@
   import LeftArm from "../bodyparts/LeftArm.svelte";
   import RightLeg from "../bodyparts/RightLeg.svelte";
   import LeftLeg from "../bodyparts/LeftLeg.svelte";
-  import { distance } from "../physics";
+  import { distance } from "../mechanics";
   import Turban from "../bodyparts/Turban.svelte";
 
   const enemyDirection = writable(0);

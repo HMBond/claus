@@ -1,5 +1,5 @@
 <script>
-  import { distance, speed } from '../physics.js';
+  import { distance, speed } from '../mechanics.js';
   export let id;
   export let bornAt;
   export let size;

@@ -1,5 +1,5 @@
 <script>
-  import { speed } from '../physics';
+  import { speed } from '../mechanics';
 </script>
 
 <svg viewBox="0 0 379.6 81" style="transform: scaleY({0.2 - 0.0001 * $speed})">

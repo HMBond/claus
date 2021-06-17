@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
-  import { direction, distance, power } from '../physics.js';
+  import { direction, distance, power } from '../mechanics.js';
   import Mountain from './Mountain.svelte';
 
   const mountainSize = () => Math.random() * 1250 + 750;

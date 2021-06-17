@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
-  import { direction, distance, power } from '../physics';
+  import { direction, distance, power } from '../mechanics';
   import Hay from './Hay.svelte';
 
   const haySize = 200;

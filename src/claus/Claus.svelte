@@ -11,7 +11,7 @@
   import LeftArm from "../bodyparts/LeftArm.svelte";
   import RightLeg from "../bodyparts/RightLeg.svelte";
   import LeftLeg from "../bodyparts/LeftLeg.svelte";
-  import { direction, speed } from "../physics";
+  import { direction, speed } from "../mechanics";
   import { fire } from "../actions.js";
 
   const mirror = tweened(-1, {
